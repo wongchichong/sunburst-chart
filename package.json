@@ -1,74 +1,93 @@
 {
-  "name": "sunburst-chart",
-  "version": "1.19.2",
-  "description": "Sunburst interactive chart web component for visualizing hierarchical data",
-  "license": "MIT",
-  "type": "module",
-  "unpkg": "dist/sunburst-chart.min.js",
-  "jsdelivr": "dist/sunburst-chart.min.js",
-  "main": "dist/sunburst-chart.mjs",
-  "module": "dist/sunburst-chart.mjs",
-  "types": "dist/sunburst-chart.d.ts",
-  "exports": {
-    "types": "./dist/sunburst-chart.d.ts",
-    "umd": "./dist/sunburst-chart.min.js",
-    "default": "./dist/sunburst-chart.mjs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vasturiano/sunburst-chart.git"
-  },
-  "homepage": "https://github.com/vasturiano/sunburst-chart",
-  "keywords": [
-    "d3",
-    "d3-module",
-    "sunburst",
-    "hierarchical",
-    "graph",
-    "svg"
-  ],
-  "author": {
-    "name": "Vasco Asturiano",
-    "url": "https://github.com/vasturiano"
-  },
-  "bugs": {
-    "url": "https://github.com/vasturiano/sunburst-chart/issues"
-  },
-  "files": [
-    "dist/**/*"
-  ],
-  "scripts": {
-    "build": "rimraf dist && rollup -c",
-    "dev": "rollup -w -c rollup.config.dev.js",
-    "prepare": "npm run build"
-  },
-  "dependencies": {
-    "accessor-fn": "1",
-    "d3-hierarchy": "1 - 3",
-    "d3-interpolate": "1 - 3",
-    "d3-path": "1 - 3",
-    "d3-scale": "1 - 4",
-    "d3-selection": "2 - 3",
-    "d3-shape": "1 - 3",
-    "d3-transition": "2 - 3",
-    "float-tooltip": "1",
-    "kapsule": "1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.23.3",
-    "@babel/preset-env": "^7.23.3",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "postcss": "^8.4.31",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.4.1",
-    "rollup-plugin-dts": "^6.1.0",
-    "rollup-plugin-postcss": "^4.0.2",
-    "typescript": "^5.2.2"
-  },
-  "engines": {
-    "node": ">=12"
-  }
+    "name": "sunburst-chart",
+    "version": "1.19.2",
+    "description": "Sunburst interactive chart web component for visualizing hierarchical data",
+    "license": "MIT",
+    "type": "module",
+    "unpkg": "./dist/index.umd.js",
+    "jsdelivr": "./dist/index.umd.js",
+    "main": "./dist/index.cjs.js",
+    "module": "./dist/index.es.js",
+    "browser": "./dist/index.umd.js",
+    "types": "./dist/types/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vasturiano/sunburst-chart.git"
+    },
+    "homepage": "https://github.com/vasturiano/sunburst-chart",
+    "keywords": [
+        "d3",
+        "d3-module",
+        "sunburst",
+        "hierarchical",
+        "graph",
+        "svg"
+    ],
+    "author": {
+        "name": "Vasco Asturiano",
+        "url": "https://github.com/vasturiano"
+    },
+    "bugs": {
+        "url": "https://github.com/vasturiano/sunburst-chart/issues"
+    },
+    "files": [
+        "dist/**/*"
+    ],
+    "scripts": {
+        "css:watch": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+        "css": "tailwindcss -i ./src/input.css -o ./dist/output.css",
+        "build:rollup": "rimraf dist && rollup -c",
+        "dev:rollup": "rollup -w -c rollup.config.dev.js",
+        "x prepare": "npm run build",
+        "declaration": "tsc --build --force --declaration --emitDeclarationOnly --verbose",
+        "declaration:watch": "tsc --build --force --declaration --emitDeclarationOnly --verbose --watch",
+        "build:watch": "vite build --watch",
+        "build:vite": "vite build",
+        "build": "cls && run-s css build:vite css declaration",
+        "build:web": "vite build --config=vite.config.web.mts --force --mode production",
+        "web": "vite preview --config=vite.config.web.mts --host",
+        "dev:only": "vite --config=vite.config.web.mts --force --mode dev --host",
+        "dev": "run-p css:watch dev:only"
+    },
+    "peerDependencies": {
+        "accessor-fn": "1",
+        "d3": "^7.8.5",
+        "d3-hierarchy": "1 - 3",
+        "d3-interpolate": "1 - 3",
+        "d3-path": "1 - 3",
+        "d3-scale": "1 - 4",
+        "d3-selection": "2 - 3",
+        "d3-shape": "1 - 3",
+        "d3-transition": "2 - 3",
+        "float-tooltip": "1",
+        "kapsule": "workspace:^"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.24.0",
+        "@babel/preset-env": "^7.24.0",
+        "@rollup/plugin-babel": "^6.0.4",
+        "@rollup/plugin-commonjs": "^25.0.7",
+        "@rollup/plugin-node-resolve": "^15.2.3",
+        "@rollup/plugin-terser": "^0.4.4",
+        "@types/d3": "^7.4.3",
+        "@types/d3-hierarchy": "^3.1.6",
+        "@types/d3-interpolate": "^3.0.4",
+        "@types/d3-path": "^3.1.0",
+        "@types/d3-scale": "^4.0.8",
+        "@types/d3-selection": "^3.0.10",
+        "@types/d3-shape": "^3.1.6",
+        "@types/d3-transition": "^3.0.8",
+        "postcss": "^8.4.35",
+        "rimraf": "^5.0.5",
+        "rollup": "^4.12.1",
+        "rollup-plugin-dts": "^6.1.0",
+        "rollup-plugin-postcss": "^4.0.2",
+        "tailwindcss": "^3.4.1",
+        "tailwindcss-elevation": "^2.0.0",
+        "typescript": "^5.4.2",
+        "vite": "^5.1.5"
+    },
+    "engines": {
+        "node": ">=12"
+    }
 }

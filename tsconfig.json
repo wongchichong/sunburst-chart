@@ -1,0 +1,64 @@
+{
+    "compilerOptions": {
+        "allowJs": false,
+        "allowSyntheticDefaultImports": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "alwaysStrict": true,
+        "declaration": true,
+        "disableSizeLimit": true,
+        "esModuleInterop": false,
+        "forceConsistentCasingInFileNames": true,
+        "inlineSourceMap": false,
+        "inlineSources": false,
+        // "isolatedModules": true,
+        "jsx": "react-jsx",
+        "jsxImportSource": "voby",
+        "lib": [
+            "dom",
+            "esnext"
+        ],
+        "module": "es2020",
+        "moduleResolution": "node",
+        "newLine": "lf",
+        "noEmitOnError": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": false,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noPropertyAccessFromIndexSignature": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": false,
+        "outDir": "./dist/",
+        "pretty": true,
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+        "sourceMap": false,
+        "strict": true,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        "strictNullChecks": false,
+        "target": "es2020",
+        "resolveJsonModule": true,
+        "useDefineForClassFields": false,
+        "useUnknownInCatchVariables": true,
+        "noImplicitAny": false,
+        "noUncheckedIndexedAccess": false,
+        "baseUrl": ".",
+        "rootDir": "./",
+        "composite": true,
+    },
+    "include": [
+        "example/truncate-labels/*.json"
+    ],
+    "exclude": [
+        "node_modules/*",
+        "*.test.ts*",
+        "tailwind.config.ts",
+        "vite.*.mts",
+        "vite.config.*.ts",
+    ]
+    // "include": [
+    //   "../voby/src/jsx"
+    // ]
+}
