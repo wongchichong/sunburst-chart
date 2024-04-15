@@ -8,15 +8,14 @@ const config = defineConfig({
         lib: {
             entry: ["./src/index.ts"],
             name: "sunburst-chart",
-            formats: ['es', 'cjs', 'umd'],
+            formats: [/* 'cjs',  */'es' /*, 'umd'*/],
             fileName: (format: string, entryName: string) => `${entryName}.${format}.js`
         },
         sourcemap: true,
         rollupOptions: {
             external: ['voby', 'oby', "voby/jsx-runtime", "d3",
                 "d3-hierarchy", "d3-interpolate", "d3-path", "d3-scale", "d3-selection", "d3-shape", "d3-transition", "accessor-fn",
-                "float-tooltip", "kapsule",
-
+                "float-tooltip", 'kapsule'
             ],
             output: {
                 globals: {
@@ -30,7 +29,6 @@ const config = defineConfig({
                     "d3-path": 'd3Path',
                     "d3-interpolate": 'd3Interpolate',
                     "d3-transition": 'd3Transition',
-                    "kapsule": 'Kapsule',
                     "accessor-fn": 'accessorFn',
                     "float-tooltip": 'Tooltip',
                 }

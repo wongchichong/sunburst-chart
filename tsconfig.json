@@ -6,6 +6,7 @@
         "allowUnusedLabels": false,
         "alwaysStrict": true,
         "declaration": true,
+        "declarationDir": "./dist/types",
         "disableSizeLimit": true,
         "esModuleInterop": false,
         "forceConsistentCasingInFileNames": true,
@@ -44,19 +45,16 @@
         "useUnknownInCatchVariables": true,
         "noImplicitAny": false,
         "noUncheckedIndexedAccess": false,
-        "baseUrl": ".",
-        "rootDir": "./",
+        "rootDir": "./src",
         "composite": true,
     },
-    "include": [
-        "example/truncate-labels/*.json"
-    ],
     "exclude": [
         "node_modules/*",
         "*.test.ts*",
         "tailwind.config.ts",
         "vite.*.mts",
         "vite.config.*.ts",
+        "example"
     ]
     // "include": [
     //   "../voby/src/jsx"
